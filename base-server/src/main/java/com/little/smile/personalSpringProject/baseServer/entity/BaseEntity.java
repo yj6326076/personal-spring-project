@@ -2,8 +2,9 @@
  * this is little boy's personal project,right received by yj6326076@hotmail.com from 2020 to 2020
  */
 
-package com.little.smile.personalSpringProject.entity;
+package com.little.smile.personalSpringProject.baseServer.entity;
 
+import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -20,6 +21,7 @@ import java.util.Date;
  * @since 2020-12-04
  */
 @MappedSuperclass
+@Data
 public class BaseEntity {
     @CreatedBy
     @Column

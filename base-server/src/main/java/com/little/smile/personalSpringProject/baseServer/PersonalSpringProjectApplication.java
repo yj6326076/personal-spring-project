@@ -1,8 +1,11 @@
-package com.little.smile.personalSpringProject;
+package com.little.smile.personalSpringProject.baseServer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author yj632
+ */
 @SpringBootApplication
 public class PersonalSpringProjectApplication {
 

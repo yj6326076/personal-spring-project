@@ -1,6 +1,7 @@
-package com.little.smile.personalSpringProject.entity;
+package com.little.smile.personalSpringProject.baseServer.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -9,10 +10,11 @@ import javax.persistence.*;
  * @author yj632
  * @since 2020-12-03
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "user")
-public class UserEntity {
+public class UserEntity extends BaseEntity {
     /** 用户id */
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id
