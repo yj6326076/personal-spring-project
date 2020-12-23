@@ -15,15 +15,11 @@ import lombok.Getter;
 @Getter
 public enum LogStatus {
     // 成功
-    SUCCESS("success"),
+    SUCCESS,
     // 失败
-    ERROR("error"),
+    ERROR,
     // 开始
-    START("start"),
+    START,
     // 运行中
-    RUNNING("running");
-    private final String status;
-    LogStatus(String status) {
-        this.status = status;
-    }
+    RUNNING;
 }

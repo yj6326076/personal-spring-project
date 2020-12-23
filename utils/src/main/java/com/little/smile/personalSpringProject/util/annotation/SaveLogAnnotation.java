@@ -5,17 +5,14 @@
 package com.little.smile.personalSpringProject.util.annotation;
 
 import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
 import java.lang.annotation.Target;
 
 /**
- * LogAnnotation
+ * SaveLogAnnotation
  *
- * @author yj6326076
- * @since 2020-12-07
+ * @author yj632
+ * @since 2020-12-08
  */
-@Inherited
-@Target(value = {ElementType.METHOD})
-public @interface LogAnnotation {
-    String value() default "";
+@Target(value = {ElementType.TYPE})
+public @interface SaveLogAnnotation {
 }

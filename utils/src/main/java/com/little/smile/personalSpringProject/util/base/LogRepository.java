@@ -18,3 +18,4 @@ public interface LogRepository {
      */
     int save(Object object);
 }
+

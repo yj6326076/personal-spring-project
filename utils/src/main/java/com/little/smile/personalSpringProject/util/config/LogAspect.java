@@ -5,14 +5,12 @@
 package com.little.smile.personalSpringProject.util.config;
 
 import com.little.smile.personalSpringProject.util.annotation.LogAnnotation;
-import com.little.smile.personalSpringProject.util.base.LogRepository;
-import com.little.smile.personalSpringProject.util.enums.LogStatus;
+import io.swagger.models.HttpMethod;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * LogAspect
@@ -23,8 +21,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 @Aspect
 @Slf4j
 public class LogAspect {
-    // 获取springBean
-    private static ConfigurableApplicationContext configurableApplicationContext;
     @Pointcut(value = "@annotation(logAnnotation)")
     public void doLog(LogAnnotation logAnnotation){
     }
@@ -32,10 +28,6 @@ public class LogAspect {
     @Around(value = "doLog(logAnnotation)", argNames = "proceedingJoinPoint,logAnnotation")
     public Object logAspect(ProceedingJoinPoint proceedingJoinPoint,LogAnnotation logAnnotation) throws Throwable {
         String logInfo = logAnnotation.value();
-        Object repository = null;
-        if (!logAnnotation.repository().equals(String.class)) {
-            repository = getRepository(logAnnotation.repository());
-        }
         log.info("start running the {} method",logInfo);
         try {
             Object o = proceedingJoinPoint.proceed();
@@ -45,20 +37,5 @@ public class LogAspect {
             log.error("running method =====> {} error!!!!!!!!!",logInfo);
             throw throwable;
         }
-    }
-
-    private Object getRepository(Class clazz) {
-        return configurableApplicationContext.getBean(clazz);
-    }
-
-    private void saveLog(ProceedingJoinPoint proceedingJoinPoint,
-                         LogAnnotation logAnnotation, Object repository, LogStatus logStatus){
-        if (null == repository) {
-            return;
-        }
-        if (repository instanceof LogRepository) {
-
-        }
-
     }
 }
