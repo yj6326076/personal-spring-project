@@ -5,12 +5,12 @@
 package com.little.smile.personalSpringProject.util.base;
 
 /**
- * LogRepository
+ * 日志保存服务接口
  *
  * @author yj6326076
  * @since 2020-12-07
  */
-public interface LogRepository {
+public interface LogSaveService {
     /**
      * 保持所有日志
      * @param object 保存参数
